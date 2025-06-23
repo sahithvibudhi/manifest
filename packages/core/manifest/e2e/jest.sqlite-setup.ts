@@ -50,6 +50,7 @@ beforeAll(async () => {
         )
         const interpolatedContent =
           yamlService.interpolateDotEnvVariables(fileContent)
+        console.error(interpolatedContent)
         return load(interpolatedContent)
       }
     })
