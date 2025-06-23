@@ -406,7 +406,7 @@ entities:
       afterCreate:
         - url: http://localhost:9999/webhooks-e2e-from-env
           headers:
-            Authorization: 'Bearer ${TOKEN_SECRET_KEY}'
+            X-Test-Header: '${TOKEN_SECRET_KEY}'
     policies: *publicAccess
 
   WebhookSinglePage:

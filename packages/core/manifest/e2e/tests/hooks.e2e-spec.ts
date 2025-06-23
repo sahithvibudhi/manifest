@@ -141,11 +141,11 @@ describe('Hooks (e2e)', () => {
 
       await waitForWebhook()
 
-      console.error(receivedWebhooks[0].headers['authorization'])
+      console.error(receivedWebhooks[0].headers['x-test-header'])
 
       expect(receivedWebhooks.length).toBe(1)
       expect(receivedWebhooks[0].path).toBe('/webhooks-e2e-from-env')
-      expect(receivedWebhooks[0].headers['authorization']).toBe('Bearer test')
+      expect(receivedWebhooks[0].headers['x-test-header']).toBe('test')
     })
 
     it('should not care if the request fails', async () => {
