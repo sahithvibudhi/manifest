@@ -133,12 +133,15 @@ describe('Hooks (e2e)', () => {
     })
 
     it('should integrate dotenv variables', async () => {
+      console.error(process.env.TOKEN_SECRET_KEY)
       await global.request
         .post('/collections/webhook-with-headers')
         .send({ name: 'Test' })
         .expect(201)
 
       await waitForWebhook()
+
+      console.error(receivedWebhooks[0].headers['authorization'])
 
       expect(receivedWebhooks.length).toBe(1)
       expect(receivedWebhooks[0].path).toBe('/webhooks-e2e-from-env')
